@@ -2,6 +2,6 @@ _ubuntu_repo_dist_name: "{{ ansible_distribution | lower }}{{ ansible_distributi
 _ubuntu_repo_file_name: "nvidia-docker.list"
 _ubuntu_repo_file_path: "/etc/apt/sources.list.d/{{ _ubuntu_repo_file_name }}"
 
-_rhel_repo_dist_name: "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
+_rhel_repo_dist_name: '{{ "centos7" if ansible_os_family == "EulerOS" else "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}" }}'
 _rhel_repo_file_name: "nvidia-docker.repo"
 _rhel_repo_file_path: "/etc/yum.repos.d/{{ _rhel_repo_file_name }}"
